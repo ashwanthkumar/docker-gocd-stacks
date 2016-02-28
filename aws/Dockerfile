@@ -1,16 +1,8 @@
-FROM ashwanthkumar/gocd-agent:16.1.0
+FROM ashwanthkumar/gocd-agent-jdk:16.1.0
 MAINTAINER Ashwanth Kumar
 
-RUN apt-get update \
-    && apt-get install -y \
-        jq \
-        libxml2-utils \
-        python-openssl \
-        python-pip  \
-        python2.7 \
-        xmlstarlet \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+RUN apk --update add python py-pip  \
     && pip install awscli \
     && pip install s3cmd  \
     && pip install s4cmd
+    && rm -rf /var/cache/apk/* /tmp/*
