@@ -1,4 +1,4 @@
-FROM ashwanthkumar/gocd-agent:latest
+FROM ashwanthkumar/gocd-agent:16.1.0
 MAINTAINER Ashwanth Kumar
 
 RUN apt-get update \
